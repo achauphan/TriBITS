@@ -335,5 +335,6 @@ class RandomFailureSummary(object):
       "\n<br>Build name: "+ self.buildName +\
       "\n<br>Test name: "+ self.testName +\
       "\n<br>Test history URL: "+ self.testHistoryUrl +\
-      "\n<br>Sha1 Pair : "+ str(self.sha1Pair)
+      "\n<br>Sha1 Pair : "+ str(self.sha1Pair) +\
+      "<br>"
 

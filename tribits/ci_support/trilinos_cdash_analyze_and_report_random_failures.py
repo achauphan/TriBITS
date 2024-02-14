@@ -28,6 +28,14 @@ def main():
 
   cdashAnalyzeAndReportRandomFailures.runDriver()
 
+
+# Strategy class for retrieving target topic
+# version information from a given string. 
+# 
+# This is the unique implementation for the Trilinos
+# CDash project which uses the TriBITS configure
+# output to display the version information.
+#
 class TrilinosVersionInfoStrategy:
 
   def getTargetTopicSha1s(self, buildData):
@@ -40,12 +48,19 @@ class TrilinosVersionInfoStrategy:
   def checkTargetTopicRandomFailure(self, targetTopicPair, knownTargetTopicPairs):
     return targetTopicPair in knownTargetTopicPairs
 
+
+# Strategy class for extracting the core build names
+# from a given full build name. 
+#
+# This is the unique implementation for the Trilinos
+# CDash project that strips the Jenkins job ids from
+# the build names posted on the Trilinos CDash
+#
 class TrilinosExtractBuildNameStrategy:
 
   def getCoreBuildName(self, fullBuildName):
     coreBuildName = fullBuildName.rsplit('-',1)[0]
     return coreBuildName
-
 
 
 if __name__ == '__main__':
